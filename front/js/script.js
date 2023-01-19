@@ -35,7 +35,7 @@ async function getproducts() {
 
     return products;
   } catch (err) {
-    console.warn(`${err.message}: ${'Erreur de connexion avec le serveur'}`);
+    console.warn(`Erreur de connexion avec le serveur:${err.message}`);
 
     return [];
   }
