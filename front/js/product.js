@@ -79,6 +79,7 @@
     } else if (quantity > 100) {
       alert('Le maximum est de 100');
       return;
+      /* validation à enrichir pour les negatifs etc */
     }
 
     /* Création d'un array contenant l'id, la couleur et la nouvelle propriété quantity pour le nombre d'objets commandés */

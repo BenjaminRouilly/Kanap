@@ -15,7 +15,6 @@
     const cart__items = document.getElementById("cart__items");
 
       /* Réccupération du produit */
-
       async function getProducts(url) {
         try {
           const res = await fetch(url);
@@ -286,20 +285,20 @@
         contact,
       };
 
-      submitForm(postProperties);
+      postCommand(postProperties);
     } else {
       alert('Veuillez remplir tous les champs du formulaire');
     }
   });
 
   /* Appel de l'API avec Fetch et envoi des données avec la méthode POST si le formulaire est conforme aux attentes */
-  function submitForm(postProperties) {
+  function postCommand(postProperties) {
     if (cart.length == 0) {
       alert("Il n'y a pas d'article dans votre panier");
       return;
     }
 
-    const submitForm = fetch('http://localhost:3000/api/products/order', {
+    const promise = fetch('http://localhost:3000/api/products/order', {
       method: 'POST',
       body: JSON.stringify(postProperties),
       headers: {
@@ -308,7 +307,7 @@
       },
     });
 
-    submitForm.then(async (response) => {
+    promise.then(async (response) => {
       try {
         const content = await response.json();
         let orderId = content.orderId;
