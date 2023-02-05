@@ -28,18 +28,21 @@
         }
       }
 
-    /** Récupération des données sur le produit depuis LocalStorage */
+    /** Récupération des données sur le produit depuis localStorage, on vérifie si les données du panier correspondents
+     * à celles de l'API */
     (async function () {
         const products = await getProducts(url);
       
         for (let i = 0; i < cart.length; i++) {
           for (let j = 0; j < products.length; j++) {
-            if (cart[i].id === products[j]._id) cart[i].imageUrl = products[j].imageUrl;
+            if (cart[i].id === products[j]._id) {
+            cart[i].imageUrl = products[j].imageUrl;
             cart[i].altTxt = products[j].altTxt;
             cart[i].name = products[j].name;
             cart[i].price = products[j].price;
             cart[i].total = cart[i].quantity * products[j].price;
           }
+        }
         }
         checkCart();
       })();
