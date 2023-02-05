@@ -181,7 +181,7 @@
       }
     }
 
-    /* Constante pour le formulaire */
+    /* Constante pour le formulaire de contact */
     const order = document.getElementById('order');
 
   /*
