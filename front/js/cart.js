@@ -162,6 +162,10 @@
 
     /* Modifier la quantité dans le localStorage */
     function editedQuantity(id, color, newValue) {
+      if (newValue <1 || newValue > 100) {
+        alert('Veuillez choisir une quantité entre 1 et 100')
+        document.getElementById('quantity').value = 0;
+      }
       const itemToChange = cart.find(
         (item) => item.id === id && item.color === color
       );
